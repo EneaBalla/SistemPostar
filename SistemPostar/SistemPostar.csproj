@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78604DE4-F32D-4762-8C79-551DAE191547}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SistemPostar</RootNamespace>
+    <AssemblyName>SistemPostar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.bouncy-castle-connector, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.commons, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.commons.8.0.2\lib\net461\itext.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.8.0.2\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddPako.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddPako.Designer.cs">
+      <DependentUpon>AddPako.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPikaPostare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddPikaPostare.Designer.cs">
+      <DependentUpon>AddPikaPostare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPorosi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddPorosi.Designer.cs">
+      <DependentUpon>AddPorosi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRruge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddRruge.Designer.cs">
+      <DependentUpon>AddRruge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddZonaMbulimi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddZonaMbulimi.Designer.cs">
+      <DependentUpon>AddZonaMbulimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Default.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Default.Designer.cs">
+      <DependentUpon>Default.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GjurmoPorosine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GjurmoPorosine.Designer.cs">
+      <DependentUpon>GjurmoPorosine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mail.cs" />
+    <Compile Include="Pako.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pako.Designer.cs">
+      <DependentUpon>Pako.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PakoList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PakoList.Designer.cs">
+      <DependentUpon>PakoList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PikaPostare.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PikaPostare.Designer.cs">
+      <DependentUpon>PikaPostare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PikaPostareList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PikaPostareList.Designer.cs">
+      <DependentUpon>PikaPostareList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Porosi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Porosi.Designer.cs">
+      <DependentUpon>Porosi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PorosiList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PorosiList.Designer.cs">
+      <DependentUpon>PorosiList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Raporte.Designer.cs">
+      <DependentUpon>Raporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShortestRoute.cs" />
+    <Compile Include="ShperndaresList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShperndaresList.Designer.cs">
+      <DependentUpon>ShperndaresList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShperndaresRaporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShperndaresRaporte.Designer.cs">
+      <DependentUpon>ShperndaresRaporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistempostarDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sistempostarDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SportelistRaporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SportelistRaporte.Designer.cs">
+      <DependentUpon>SportelistRaporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackInfo.cs" />
+    <Compile Include="TransportuesRaporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransportuesRaporte.Designer.cs">
+      <DependentUpon>TransportuesRaporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsersList.Designer.cs">
+      <DependentUpon>UsersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPako.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewPako.Designer.cs">
+      <DependentUpon>ViewPako.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPorosi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewPorosi.Designer.cs">
+      <DependentUpon>ViewPorosi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZonaMbulimi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZonaMbulimi.Designer.cs">
+      <DependentUpon>ZonaMbulimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZonaMbulimiList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZonaMbulimiList.Designer.cs">
+      <DependentUpon>ZonaMbulimiList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddPako.resx">
+      <DependentUpon>AddPako.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPikaPostare.resx">
+      <DependentUpon>AddPikaPostare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPorosi.resx">
+      <DependentUpon>AddPorosi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRruge.resx">
+      <DependentUpon>AddRruge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddZonaMbulimi.resx">
+      <DependentUpon>AddZonaMbulimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Default.resx">
+      <DependentUpon>Default.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GjurmoPorosine.resx">
+      <DependentUpon>GjurmoPorosine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pako.resx">
+      <DependentUpon>Pako.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PakoList.resx">
+      <DependentUpon>PakoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PikaPostare.resx">
+      <DependentUpon>PikaPostare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PikaPostareList.resx">
+      <DependentUpon>PikaPostareList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Porosi.resx">
+      <DependentUpon>Porosi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PorosiList.resx">
+      <DependentUpon>PorosiList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Raporte.resx">
+      <DependentUpon>Raporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShperndaresList.resx">
+      <DependentUpon>ShperndaresList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShperndaresRaporte.resx">
+      <DependentUpon>ShperndaresRaporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SportelistRaporte.resx">
+      <DependentUpon>SportelistRaporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransportuesRaporte.resx">
+      <DependentUpon>TransportuesRaporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersList.resx">
+      <DependentUpon>UsersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPako.resx">
+      <DependentUpon>ViewPako.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPorosi.resx">
+      <DependentUpon>ViewPorosi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZonaMbulimi.resx">
+      <DependentUpon>ZonaMbulimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZonaMbulimiList.resx">
+      <DependentUpon>ZonaMbulimiList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="sistempostarDataSet.xsc">
+      <DependentUpon>sistempostarDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sistempostarDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sistempostarDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sistempostarDataSet.xss">
+      <DependentUpon>sistempostarDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
